@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Account</title>
+  <!-- Add your CSS styling and other dependencies here -->
+</head>
+<body>
+<h1>Welcome to your Account</h1>
+<p>Here are the account details from the DB:</p>
+<!-- Add your account details and other content here -->
+
+<!-- Authentication logic -->
+<div th:if="${#authentication.principal != null}">
+  <p>Logged in as: <span th:text="${#authentication.principal.username}"></span></p>
+  <form action="/logout" method="post">
+    <input type="submit" value="Logout">
+  </form>
+</div>
+<div th:unless="${#authentication.principal != null}">
+  <p>Please <a href="/login">login</a> to view your account.</p>
+</div>
+
+<!-- Add your JavaScript and other functionality here -->
+</body>
+</html>
